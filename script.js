@@ -1,8 +1,7 @@
 let buttons = document.querySelectorAll(".btn");
 let s = ""
 Array.from(buttons).forEach((item) => {
-
-    // item.style.backgroundColor="green"
+    
     item.addEventListener('click', (e) => {
 
         if (e.target.innerHTML == '=') {
@@ -11,19 +10,24 @@ Array.from(buttons).forEach((item) => {
 
         }
 
-        else if (e.target.innerHTML == "C") {
+        else if (e.target.innerHTML == "AC") {
             s = ""
             document.querySelector("input").value = s;
-
+            
+        }
+        
+        else if(e.target.innerHTML == "DEL"){
+            
+            document.querySelector("input").value = s.substring(0,s.length-1);
+            s= s.substring(0,s.length-1)
         }
 
-        
         else {
 
             s = s + e.target.innerHTML;
             document.querySelector("input").value = s;
-            // let result =  document.getElementById("example")
 
         }
     })
 })
+
